@@ -5,6 +5,7 @@ import com.aquintero.appgate.geoproject.dto.GeolocationDto;
 import lombok.Getter;
 import lombok.Setter;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
@@ -16,6 +17,7 @@ public class FromGeolocationToGeolocationDto implements Converter<Geolocation, G
 
     private final ModelMapper modelMapper;
 
+    @Autowired
     public FromGeolocationToGeolocationDto(final ModelMapper modelMapper)
     {
         this.modelMapper = modelMapper;

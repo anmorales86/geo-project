@@ -9,6 +9,8 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name="geolocation")
+@NoArgsConstructor
+@AllArgsConstructor
 public class Geolocation
 {
 

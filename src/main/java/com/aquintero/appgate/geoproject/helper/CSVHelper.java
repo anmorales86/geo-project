@@ -18,19 +18,24 @@ import java.util.List;
  */
 public class CSVHelper
 {
-  public static String TYPE = "text/csv";
 
-  public static boolean hasCSVFormat(MultipartFile file) {
+    public static String TYPE = "text/csv";
+    public static String CHARSET_NAME_UTF_8 = "UTF-8";
+    public static Character CHARACTER_PUNTO_COMA = ';';
+    private static String MESSAGE_FAILED = "fail to parse CSV file: ";
 
-    if (!TYPE.equals(file.getContentType())) { return false; }
-    return true;
-  }
+    public static boolean hasCSVFormat(MultipartFile file)
+    {
+        if (!TYPE.equals(file.getContentType())) { return false; }
+        return true;
+    }
 
-  public static List<GeolocationDto> csvToTutorials(InputStream is)
-  {
-        try (BufferedReader fileReader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+    public static List<GeolocationDto> csvToTutorials(InputStream is)
+    {
+        try (BufferedReader fileReader = new BufferedReader(new InputStreamReader(is, CHARSET_NAME_UTF_8));
              CSVParser csvParser = new CSVParser(fileReader,
-                     CSVFormat.DEFAULT.withDelimiter(';').withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim()))
+                     CSVFormat.DEFAULT.withDelimiter(CHARACTER_PUNTO_COMA).withFirstRecordAsHeader()
+                             .withIgnoreHeaderCase().withTrim()))
         {
               List<GeolocationDto> geolocationDtoList = new ArrayList<>();
               Iterable<CSVRecord> csvRecords = csvParser.getRecords();
@@ -40,11 +45,7 @@ public class CSVHelper
               });
               return geolocationDtoList;
         } catch (IOException e) {
-          throw new RuntimeException("fail to parse CSV file: " + e.getMessage());
+            throw new RuntimeException(MESSAGE_FAILED + e.getMessage());
         }
-  }
-
-
-
-
+    }
 }

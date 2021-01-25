@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 import java.util.List;
@@ -18,6 +19,7 @@ public class FromGeolocationListDtoToGeolocationList  implements Converter<List<
 
     private final ModelMapper modelMapper;
 
+    @Autowired
     public FromGeolocationListDtoToGeolocationList(final ModelMapper modelMapper)
     {
         this.modelMapper = modelMapper;
