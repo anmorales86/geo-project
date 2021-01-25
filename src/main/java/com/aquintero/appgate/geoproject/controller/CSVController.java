@@ -27,8 +27,7 @@ public class CSVController
     }
 
     @PostMapping("/v1/upload")
-    public ResponseEntity<InfoResponse> uploadFile(@RequestParam("file") MultipartFile file) throws IOException
-    {
+    public ResponseEntity<InfoResponse> uploadFile(@RequestParam("file") MultipartFile file) throws IOException {
             return new ResponseEntity<>(icsvService.save(file), HttpStatus.OK);
     }
 

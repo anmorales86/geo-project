@@ -2,6 +2,7 @@ package com.aquintero.appgate.geoproject.helper;
 
 import com.aquintero.appgate.geoproject.builders.GeolocationDtoBuilder;
 import com.aquintero.appgate.geoproject.dto.GeolocationDto;
+import com.aquintero.appgate.geoproject.exception.FailedParseCsvFileExcepcion;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -22,7 +23,7 @@ public class CSVHelper
     public static String TYPE = "text/csv";
     public static String CHARSET_NAME_UTF_8 = "UTF-8";
     public static Character CHARACTER_PUNTO_COMA = ';';
-    private static String MESSAGE_FAILED = "fail to parse CSV file: ";
+
 
     public static boolean hasCSVFormat(MultipartFile file)
     {
@@ -44,8 +45,8 @@ public class CSVHelper
                   geolocationDtoList.add(geolocationDto);
               });
               return geolocationDtoList;
-        } catch (IOException e) {
-            throw new RuntimeException(MESSAGE_FAILED + e.getMessage());
+        } catch (Exception e) {
+            throw new FailedParseCsvFileExcepcion();
         }
     }
 }

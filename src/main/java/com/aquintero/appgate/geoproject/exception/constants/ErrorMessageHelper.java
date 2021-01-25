@@ -13,5 +13,6 @@ public class ErrorMessageHelper
     public static final String NO_IS_IP = "It isn't ip correct";
     public static final String ERROR_TEST = "Error!!!";
     public static final String IP_TO_INCORRECT = "IpTo shouldn't be minor that IpFrom";
+    public static final String FAILED_PARSE_CSV_FILE = "fail to parse CSV file: ";
 
 }

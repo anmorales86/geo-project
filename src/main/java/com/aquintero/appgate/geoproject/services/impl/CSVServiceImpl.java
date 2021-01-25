@@ -33,8 +33,7 @@ public class CSVServiceImpl implements ICSVService
     }
 
     @Override
-    public InfoResponse save(MultipartFile file) throws IOException
-    {
+    public InfoResponse save(MultipartFile file) throws IOException {
         if (!CSVHelper.hasCSVFormat(file)) {
             throw new NoCsvFormatException();
         }

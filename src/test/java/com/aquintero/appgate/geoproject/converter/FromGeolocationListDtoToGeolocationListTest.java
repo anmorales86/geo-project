@@ -3,9 +3,7 @@ package com.aquintero.appgate.geoproject.converter;
 import com.aquintero.appgate.geoproject.constants.ConstantTest;
 import com.aquintero.appgate.geoproject.dto.GeolocationDto;
 import com.aquintero.appgate.geoproject.entities.Geolocation;
-import com.aquintero.appgate.geoproject.exception.constants.ErrorMessageHelper;
 import com.aquintero.appgate.geoproject.utils.IpUtil;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,11 +14,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 import org.modelmapper.ModelMapper;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 

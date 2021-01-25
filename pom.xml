@@ -165,7 +165,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>geo-location</finalName>
+		<finalName>geolocation</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

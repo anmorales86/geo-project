@@ -4,6 +4,7 @@ import com.aquintero.appgate.geoproject.converter.FromGeolocationListDtoToGeoloc
 import com.aquintero.appgate.geoproject.domain.response.InfoResponse;
 import com.aquintero.appgate.geoproject.dto.GeolocationDto;
 import com.aquintero.appgate.geoproject.entities.Geolocation;
+import com.aquintero.appgate.geoproject.exception.FailedParseCsvFileExcepcion;
 import com.aquintero.appgate.geoproject.exception.IpToIncorrectException;
 import com.aquintero.appgate.geoproject.exception.NoCsvFormatException;
 import com.aquintero.appgate.geoproject.exception.NoIsIpException;
@@ -122,6 +123,9 @@ public class CSVServiceImplTest
         }catch (IpToIncorrectException ex) {
             assertEquals(ErrorMessageHelper.IP_TO_INCORRECT, ex.getMessage(),
                     "It shouldn´t be " + ErrorMessageHelper.IP_TO_INCORRECT);
+        }catch (FailedParseCsvFileExcepcion e) {
+            assertEquals(ErrorMessageHelper.FAILED_PARSE_CSV_FILE, e.getMessage(),
+                    "It shouldn´t be " + ErrorMessageHelper.FAILED_PARSE_CSV_FILE);
         }
     }
 
@@ -146,6 +150,9 @@ public class CSVServiceImplTest
         }catch (NoIsIpException ex) {
             assertEquals(ErrorMessageHelper.NO_IS_IP, ex.getMessage(),
                     "It should be " + ErrorMessageHelper.NO_IS_IP);
+        }catch (FailedParseCsvFileExcepcion e) {
+            assertEquals(ErrorMessageHelper.FAILED_PARSE_CSV_FILE, e.getMessage(),
+                    "It shouldn´t be " + ErrorMessageHelper.FAILED_PARSE_CSV_FILE);
         }
     }
 }
